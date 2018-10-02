@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\benchmarks\alias.cpp" />
+    <ClCompile Include="src\benchmarks\match.cpp" />
+    <ClCompile Include="src\benchmarks\packed_vector.cpp" />
+    <ClCompile Include="src\benchmarks\static_rtree.cpp" />
+    <ClCompile Include="src\contractor\contractor.cpp" />
+    <ClCompile Include="src\contractor\contractor_search.cpp" />
+    <ClCompile Include="src\contractor\graph_contractor.cpp" />
+    <ClCompile Include="src\customize\customizer.cpp" />
+    <ClCompile Include="src\engine\api\json_factory.cpp" />
+    <ClCompile Include="src\engine\datafacade\mmap_memory_allocator.cpp" />
+    <ClCompile Include="src\engine\datafacade\process_memory_allocator.cpp" />
+    <ClCompile Include="src\engine\datafacade\shared_memory_allocator.cpp" />
+    <ClCompile Include="src\engine\douglas_peucker.cpp" />
+    <ClCompile Include="src\engine\engine_config.cpp" />
+    <ClCompile Include="src\engine\guidance\assemble_overview.cpp" />
+    <ClCompile Include="src\engine\guidance\assemble_route.cpp" />
+    <ClCompile Include="src\engine\guidance\assemble_steps.cpp" />
+    <ClCompile Include="src\engine\guidance\collapse_scenario_detection.cpp" />
+    <ClCompile Include="src\engine\guidance\collapse_turns.cpp" />
+    <ClCompile Include="src\engine\guidance\lane_processing.cpp" />
+    <ClCompile Include="src\engine\guidance\post_processing.cpp" />
+    <ClCompile Include="src\engine\guidance\verbosity_reduction.cpp" />
+    <ClCompile Include="src\engine\hint.cpp" />
+    <ClCompile Include="src\engine\plugins\match.cpp" />
+    <ClCompile Include="src\engine\plugins\nearest.cpp" />
+    <ClCompile Include="src\engine\plugins\table.cpp" />
+    <ClCompile Include="src\engine\plugins\tile.cpp" />
+    <ClCompile Include="src\engine\plugins\trip.cpp" />
+    <ClCompile Include="src\engine\plugins\viaroute.cpp" />
+    <ClCompile Include="src\engine\polyline_compressor.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\alternative_path_ch.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\alternative_path_mld.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\direct_shortest_path.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\many_to_many_ch.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\many_to_many_mld.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\map_matching.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\routing_base.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\routing_base_ch.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\shortest_path.cpp" />
+    <ClCompile Include="src\engine\routing_algorithms\tile_turns.cpp" />
+    <ClCompile Include="src\engine\search_engine_data.cpp" />
+    <ClCompile Include="src\extractor\compressed_edge_container.cpp" />
+    <ClCompile Include="src\extractor\edge_based_graph_factory.cpp" />
+    <ClCompile Include="src\extractor\extraction_containers.cpp" />
+    <ClCompile Include="src\extractor\extractor.cpp" />
+    <ClCompile Include="src\extractor\extractor_callbacks.cpp" />
+    <ClCompile Include="src\extractor\graph_compressor.cpp" />
+    <ClCompile Include="src\extractor\intersection\coordinate_extractor.cpp" />
+    <ClCompile Include="src\extractor\intersection\have_identical_names.cpp" />
+    <ClCompile Include="src\extractor\intersection\intersection.cpp" />
+    <ClCompile Include="src\extractor\intersection\intersection_analysis.cpp" />
+    <ClCompile Include="src\extractor\intersection\mergable_road_detector.cpp" />
+    <ClCompile Include="src\extractor\intersection\node_based_graph_walker.cpp" />
+    <ClCompile Include="src\extractor\location_dependent_data.cpp" />
+    <ClCompile Include="src\extractor\maneuver_override_relation_parser.cpp" />
+    <ClCompile Include="src\extractor\node_based_graph_factory.cpp" />
+    <ClCompile Include="src\extractor\raster_source.cpp" />
+    <ClCompile Include="src\extractor\restriction_compressor.cpp" />
+    <ClCompile Include="src\extractor\restriction_filter.cpp" />
+    <ClCompile Include="src\extractor\restriction_parser.cpp" />
+    <ClCompile Include="src\extractor\scripting_environment_lua.cpp" />
+    <ClCompile Include="src\extractor\suffix_table.cpp" />
+    <ClCompile Include="src\extractor\way_restriction_map.cpp" />
+    <ClCompile Include="src\guidance\driveway_handler.cpp" />
+    <ClCompile Include="src\guidance\guidance_processing.cpp" />
+    <ClCompile Include="src\guidance\intersection_handler.cpp" />
+    <ClCompile Include="src\guidance\motorway_handler.cpp" />
+    <ClCompile Include="src\guidance\roundabout_handler.cpp" />
+    <ClCompile Include="src\guidance\segregated_intersection_classification.cpp" />
+    <ClCompile Include="src\guidance\sliproad_handler.cpp" />
+    <ClCompile Include="src\guidance\suppress_mode_handler.cpp" />
+    <ClCompile Include="src\guidance\turn_analysis.cpp" />
+    <ClCompile Include="src\guidance\turn_classification.cpp" />
+    <ClCompile Include="src\guidance\turn_discovery.cpp" />
+    <ClCompile Include="src\guidance\turn_handler.cpp" />
+    <ClCompile Include="src\guidance\turn_lane_augmentation.cpp" />
+    <ClCompile Include="src\guidance\turn_lane_data.cpp" />
+    <ClCompile Include="src\guidance\turn_lane_handler.cpp" />
+    <ClCompile Include="src\guidance\turn_lane_matcher.cpp" />
+    <ClCompile Include="src\osrm\contractor.cpp" />
+    <ClCompile Include="src\osrm\customizer.cpp" />
+    <ClCompile Include="src\osrm\extractor.cpp" />
+    <ClCompile Include="src\osrm\osrm.cpp" />
+    <ClCompile Include="src\osrm\partitioner.cpp" />
+    <ClCompile Include="src\partitioner\bisection_graph_view.cpp" />
+    <ClCompile Include="src\partitioner\bisection_to_partition.cpp" />
+    <ClCompile Include="src\partitioner\dinic_max_flow.cpp" />
+    <ClCompile Include="src\partitioner\inertial_flow.cpp" />
+    <ClCompile Include="src\partitioner\partitioner.cpp" />
+    <ClCompile Include="src\partitioner\recursive_bisection.cpp" />
+    <ClCompile Include="src\partitioner\recursive_bisection_state.cpp" />
+    <ClCompile Include="src\partitioner\renumber.cpp" />
+    <ClCompile Include="src\partitioner\tarjan_graph_wrapper.cpp" />
+    <ClCompile Include="src\server\api\parameters_parser.cpp" />
+    <ClCompile Include="src\server\api\url_parser.cpp" />
+    <ClCompile Include="src\server\connection.cpp" />
+    <ClCompile Include="src\server\http\reply.cpp" />
+    <ClCompile Include="src\server\request_handler.cpp" />
+    <ClCompile Include="src\server\request_parser.cpp" />
+    <ClCompile Include="src\server\service\match_service.cpp" />
+    <ClCompile Include="src\server\service\nearest_service.cpp" />
+    <ClCompile Include="src\server\service\route_service.cpp" />
+    <ClCompile Include="src\server\service\table_service.cpp" />
+    <ClCompile Include="src\server\service\tile_service.cpp" />
+    <ClCompile Include="src\server\service\trip_service.cpp" />
+    <ClCompile Include="src\server\service_handler.cpp" />
+    <ClCompile Include="src\storage\io_config.cpp" />
+    <ClCompile Include="src\storage\storage.cpp" />
+    <ClCompile Include="src\tools\components.cpp" />
+    <ClCompile Include="src\tools\contract.cpp" />
+    <ClCompile Include="src\tools\customize.cpp" />
+    <ClCompile Include="src\tools\extract.cpp" />
+    <ClCompile Include="src\tools\io-benchmark.cpp" />
+    <ClCompile Include="src\tools\partition.cpp" />
+    <ClCompile Include="src\tools\routed.cpp" />
+    <ClCompile Include="src\tools\store.cpp" />
+    <ClCompile Include="src\updater\csv_source.cpp" />
+    <ClCompile Include="src\updater\updater.cpp" />
+    <ClCompile Include="src\util\assert.cpp" />
+    <ClCompile Include="src\util\conditional_restrictions.cpp" />
+    <ClCompile Include="src\util\coordinate.cpp" />
+    <ClCompile Include="src\util\coordinate_calculation.cpp" />
+    <ClCompile Include="src\util\exception.cpp" />
+    <ClCompile Include="src\util\fingerprint.cpp" />
+    <ClCompile Include="src\util\geojson_debug_policies.cpp" />
+    <ClCompile Include="src\util\glibc_workaround.cpp" />
+    <ClCompile Include="src\util\guidance\bearing_class.cpp" />
+    <ClCompile Include="src\util\guidance\entry_class.cpp" />
+    <ClCompile Include="src\util\guidance\turn_lanes.cpp" />
+    <ClCompile Include="src\util\log.cpp" />
+    <ClCompile Include="src\util\opening_hours.cpp" />
+    <ClCompile Include="src\util\timed_historgram.cpp" />
+    <ClCompile Include="src\util\timezones.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\contractor\contracted_edge_container.hpp" />
+    <ClInclude Include="include\contractor\contracted_metric.hpp" />
+    <ClInclude Include="include\contractor\contractor.hpp" />
+    <ClInclude Include="include\contractor\contractor_config.hpp" />
+    <ClInclude Include="include\contractor\contractor_graph.hpp" />
+    <ClInclude Include="include\contractor\contractor_heap.hpp" />
+    <ClInclude Include="include\contractor\contractor_search.hpp" />
+    <ClInclude Include="include\contractor\contract_excludable_graph.hpp" />
+    <ClInclude Include="include\contractor\crc32_processor.hpp" />
+    <ClInclude Include="include\contractor\files.hpp" />
+    <ClInclude Include="include\contractor\graph_contractor.hpp" />
+    <ClInclude Include="include\contractor\graph_contractor_adaptors.hpp" />
+    <ClInclude Include="include\contractor\query_edge.hpp" />
+    <ClInclude Include="include\contractor\query_graph.hpp" />
+    <ClInclude Include="include\contractor\serialization.hpp" />
+    <ClInclude Include="include\customizer\cell_customizer.hpp" />
+    <ClInclude Include="include\customizer\cell_metric.hpp" />
+    <ClInclude Include="include\customizer\customizer.hpp" />
+    <ClInclude Include="include\customizer\customizer_config.hpp" />
+    <ClInclude Include="include\customizer\edge_based_graph.hpp" />
+    <ClInclude Include="include\customizer\files.hpp" />
+    <ClInclude Include="include\customizer\serialization.hpp" />
+    <ClInclude Include="include\engine\algorithm.hpp" />
+    <ClInclude Include="include\engine\api\base_api.hpp" />
+    <ClInclude Include="include\engine\api\base_parameters.hpp" />
+    <ClInclude Include="include\engine\api\json_factory.hpp" />
+    <ClInclude Include="include\engine\api\match_api.hpp" />
+    <ClInclude Include="include\engine\api\match_parameters.hpp" />
+    <ClInclude Include="include\engine\api\match_parameters_tidy.hpp" />
+    <ClInclude Include="include\engine\api\nearest_api.hpp" />
+    <ClInclude Include="include\engine\api\nearest_parameters.hpp" />
+    <ClInclude Include="include\engine\api\route_api.hpp" />
+    <ClInclude Include="include\engine\api\route_parameters.hpp" />
+    <ClInclude Include="include\engine\api\table_api.hpp" />
+    <ClInclude Include="include\engine\api\table_parameters.hpp" />
+    <ClInclude Include="include\engine\api\tile_parameters.hpp" />
+    <ClInclude Include="include\engine\api\trip_api.hpp" />
+    <ClInclude Include="include\engine\api\trip_parameters.hpp" />
+    <ClInclude Include="include\engine\approach.hpp" />
+    <ClInclude Include="include\engine\base64.hpp" />
+    <ClInclude Include="include\engine\bearing.hpp" />
+    <ClInclude Include="include\engine\datafacade.hpp" />
+    <ClInclude Include="include\engine\datafacade\algorithm_datafacade.hpp" />
+    <ClInclude Include="include\engine\datafacade\contiguous_block_allocator.hpp" />
+    <ClInclude Include="include\engine\datafacade\contiguous_internalmem_datafacade.hpp" />
+    <ClInclude Include="include\engine\datafacade\datafacade_base.hpp" />
+    <ClInclude Include="include\engine\datafacade\mmap_memory_allocator.hpp" />
+    <ClInclude Include="include\engine\datafacade\process_memory_allocator.hpp" />
+    <ClInclude Include="include\engine\datafacade\shared_memory_allocator.hpp" />
+    <ClInclude Include="include\engine\datafacade_factory.hpp" />
+    <ClInclude Include="include\engine\datafacade_provider.hpp" />
+    <ClInclude Include="include\engine\data_watchdog.hpp" />
+    <ClInclude Include="include\engine\douglas_peucker.hpp" />
+    <ClInclude Include="include\engine\engine.hpp" />
+    <ClInclude Include="include\engine\engine_config.hpp" />
+    <ClInclude Include="include\engine\geospatial_query.hpp" />
+    <ClInclude Include="include\engine\guidance\assemble_geometry.hpp" />
+    <ClInclude Include="include\engine\guidance\assemble_leg.hpp" />
+    <ClInclude Include="include\engine\guidance\assemble_overview.hpp" />
+    <ClInclude Include="include\engine\guidance\assemble_route.hpp" />
+    <ClInclude Include="include\engine\guidance\assemble_steps.hpp" />
+    <ClInclude Include="include\engine\guidance\collapse_scenario_detection.hpp" />
+    <ClInclude Include="include\engine\guidance\collapse_turns.hpp" />
+    <ClInclude Include="include\engine\guidance\collapsing_utility.hpp" />
+    <ClInclude Include="include\engine\guidance\lane_processing.hpp" />
+    <ClInclude Include="include\engine\guidance\leg_geometry.hpp" />
+    <ClInclude Include="include\engine\guidance\postprocessing_toolkit.hpp" />
+    <ClInclude Include="include\engine\guidance\post_processing.hpp" />
+    <ClInclude Include="include\engine\guidance\route.hpp" />
+    <ClInclude Include="include\engine\guidance\route_leg.hpp" />
+    <ClInclude Include="include\engine\guidance\route_step.hpp" />
+    <ClInclude Include="include\engine\guidance\step_maneuver.hpp" />
+    <ClInclude Include="include\engine\guidance\verbosity_reduction.hpp" />
+    <ClInclude Include="include\engine\hint.hpp" />
+    <ClInclude Include="include\engine\internal_route_result.hpp" />
+    <ClInclude Include="include\engine\map_matching\bayes_classifier.hpp" />
+    <ClInclude Include="include\engine\map_matching\hidden_markov_model.hpp" />
+    <ClInclude Include="include\engine\map_matching\matching_confidence.hpp" />
+    <ClInclude Include="include\engine\map_matching\sub_matching.hpp" />
+    <ClInclude Include="include\engine\phantom_node.hpp" />
+    <ClInclude Include="include\engine\plugins\match.hpp" />
+    <ClInclude Include="include\engine\plugins\nearest.hpp" />
+    <ClInclude Include="include\engine\plugins\plugin_base.hpp" />
+    <ClInclude Include="include\engine\plugins\table.hpp" />
+    <ClInclude Include="include\engine\plugins\tile.hpp" />
+    <ClInclude Include="include\engine\plugins\trip.hpp" />
+    <ClInclude Include="include\engine\plugins\viaroute.hpp" />
+    <ClInclude Include="include\engine\polyline_compressor.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\alternative_path.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\direct_shortest_path.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\many_to_many.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\map_matching.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\routing_base.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\routing_base_ch.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\routing_base_mld.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\shortest_path.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\shortest_path_impl.hpp" />
+    <ClInclude Include="include\engine\routing_algorithms\tile_turns.hpp" />
+    <ClInclude Include="include\engine\search_engine_data.hpp" />
+    <ClInclude Include="include\engine\status.hpp" />
+    <ClInclude Include="include\engine\trip\trip_brute_force.hpp" />
+    <ClInclude Include="include\engine\trip\trip_farthest_insertion.hpp" />
+    <ClInclude Include="include\engine\trip\trip_nearest_neighbour.hpp" />
+    <ClInclude Include="include\extractor\class_data.hpp" />
+    <ClInclude Include="include\extractor\compressed_edge_container.hpp" />
+    <ClInclude Include="include\extractor\compressed_node_based_graph_edge.hpp" />
+    <ClInclude Include="include\extractor\conditional_turn_penalty.hpp" />
+    <ClInclude Include="include\extractor\datasources.hpp" />
+    <ClInclude Include="include\extractor\edge_based_edge.hpp" />
+    <ClInclude Include="include\extractor\edge_based_graph_factory.hpp" />
+    <ClInclude Include="include\extractor\edge_based_node.hpp" />
+    <ClInclude Include="include\extractor\edge_based_node_segment.hpp" />
+    <ClInclude Include="include\extractor\extraction_containers.hpp" />
+    <ClInclude Include="include\extractor\extraction_helper_functions.hpp" />
+    <ClInclude Include="include\extractor\extraction_node.hpp" />
+    <ClInclude Include="include\extractor\extraction_relation.hpp" />
+    <ClInclude Include="include\extractor\extraction_segment.hpp" />
+    <ClInclude Include="include\extractor\extraction_turn.hpp" />
+    <ClInclude Include="include\extractor\extraction_way.hpp" />
+    <ClInclude Include="include\extractor\extractor.hpp" />
+    <ClInclude Include="include\extractor\extractor_callbacks.hpp" />
+    <ClInclude Include="include\extractor\extractor_config.hpp" />
+    <ClInclude Include="include\extractor\files.hpp" />
+    <ClInclude Include="include\extractor\first_and_last_segment_of_way.hpp" />
+    <ClInclude Include="include\extractor\geojson_debug_policies.hpp" />
+    <ClInclude Include="include\extractor\graph_compressor.hpp" />
+    <ClInclude Include="include\extractor\internal_extractor_edge.hpp" />
+    <ClInclude Include="include\extractor\intersection\constants.hpp" />
+    <ClInclude Include="include\extractor\intersection\coordinate_extractor.hpp" />
+    <ClInclude Include="include\extractor\intersection\have_identical_names.hpp" />
+    <ClInclude Include="include\extractor\intersection\intersection_analysis.hpp" />
+    <ClInclude Include="include\extractor\intersection\intersection_edge.hpp" />
+    <ClInclude Include="include\extractor\intersection\intersection_view.hpp" />
+    <ClInclude Include="include\extractor\intersection\mergable_road_detector.hpp" />
+    <ClInclude Include="include\extractor\intersection\node_based_graph_walker.hpp" />
+    <ClInclude Include="include\extractor\intersection_bearings_container.hpp" />
+    <ClInclude Include="include\extractor\location_dependent_data.hpp" />
+    <ClInclude Include="include\extractor\maneuver_override.hpp" />
+    <ClInclude Include="include\extractor\maneuver_override_relation_parser.hpp" />
+    <ClInclude Include="include\extractor\name_table.hpp" />
+    <ClInclude Include="include\extractor\nbg_to_ebg.hpp" />
+    <ClInclude Include="include\extractor\node_based_edge.hpp" />
+    <ClInclude Include="include\extractor\node_based_graph_factory.hpp" />
+    <ClInclude Include="include\extractor\node_data_container.hpp" />
+    <ClInclude Include="include\extractor\packed_osm_ids.hpp" />
+    <ClInclude Include="include\extractor\profile_properties.hpp" />
+    <ClInclude Include="include\extractor\query_node.hpp" />
+    <ClInclude Include="include\extractor\raster_source.hpp" />
+    <ClInclude Include="include\extractor\restriction.hpp" />
+    <ClInclude Include="include\extractor\restriction_compressor.hpp" />
+    <ClInclude Include="include\extractor\restriction_filter.hpp" />
+    <ClInclude Include="include\extractor\restriction_index.hpp" />
+    <ClInclude Include="include\extractor\restriction_parser.hpp" />
+    <ClInclude Include="include\extractor\road_classification.hpp" />
+    <ClInclude Include="include\extractor\scripting_environment.hpp" />
+    <ClInclude Include="include\extractor\scripting_environment_lua.hpp" />
+    <ClInclude Include="include\extractor\segment_data_container.hpp" />
+    <ClInclude Include="include\extractor\serialization.hpp" />
+    <ClInclude Include="include\extractor\suffix_table.hpp" />
+    <ClInclude Include="include\extractor\tarjan_scc.hpp" />
+    <ClInclude Include="include\extractor\travel_mode.hpp" />
+    <ClInclude Include="include\extractor\turn_lane_types.hpp" />
+    <ClInclude Include="include\extractor\way_restriction_map.hpp" />
+    <ClInclude Include="include\guidance\constants.hpp" />
+    <ClInclude Include="include\guidance\driveway_handler.hpp" />
+    <ClInclude Include="include\guidance\files.hpp" />
+    <ClInclude Include="include\guidance\guidance_processing.hpp" />
+    <ClInclude Include="include\guidance\intersection.hpp" />
+    <ClInclude Include="include\guidance\intersection_handler.hpp" />
+    <ClInclude Include="include\guidance\is_through_street.hpp" />
+    <ClInclude Include="include\guidance\motorway_handler.hpp" />
+    <ClInclude Include="include\guidance\parsing_toolkit.hpp" />
+    <ClInclude Include="include\guidance\roundabout_handler.hpp" />
+    <ClInclude Include="include\guidance\roundabout_type.hpp" />
+    <ClInclude Include="include\guidance\segregated_intersection_classification.hpp" />
+    <ClInclude Include="include\guidance\serialization.hpp" />
+    <ClInclude Include="include\guidance\sliproad_handler.hpp" />
+    <ClInclude Include="include\guidance\statistics_handler.hpp" />
+    <ClInclude Include="include\guidance\suppress_mode_handler.hpp" />
+    <ClInclude Include="include\guidance\turn_analysis.hpp" />
+    <ClInclude Include="include\guidance\turn_bearing.hpp" />
+    <ClInclude Include="include\guidance\turn_classification.hpp" />
+    <ClInclude Include="include\guidance\turn_data_container.hpp" />
+    <ClInclude Include="include\guidance\turn_discovery.hpp" />
+    <ClInclude Include="include\guidance\turn_handler.hpp" />
+    <ClInclude Include="include\guidance\turn_instruction.hpp" />
+    <ClInclude Include="include\guidance\turn_lane_augmentation.hpp" />
+    <ClInclude Include="include\guidance\turn_lane_data.hpp" />
+    <ClInclude Include="include\guidance\turn_lane_handler.hpp" />
+    <ClInclude Include="include\guidance\turn_lane_matcher.hpp" />
+    <ClInclude Include="include\osrm\approach.hpp" />
+    <ClInclude Include="include\osrm\bearing.hpp" />
+    <ClInclude Include="include\osrm\contractor.hpp" />
+    <ClInclude Include="include\osrm\contractor_config.hpp" />
+    <ClInclude Include="include\osrm\coordinate.hpp" />
+    <ClInclude Include="include\osrm\customizer.hpp" />
+    <ClInclude Include="include\osrm\customizer_config.hpp" />
+    <ClInclude Include="include\osrm\engine_config.hpp" />
+    <ClInclude Include="include\osrm\error_codes.hpp" />
+    <ClInclude Include="include\osrm\exception.hpp" />
+    <ClInclude Include="include\osrm\extractor.hpp" />
+    <ClInclude Include="include\osrm\extractor_config.hpp" />
+    <ClInclude Include="include\osrm\json_container.hpp" />
+    <ClInclude Include="include\osrm\match_parameters.hpp" />
+    <ClInclude Include="include\osrm\nearest_parameters.hpp" />
+    <ClInclude Include="include\osrm\osrm.hpp" />
+    <ClInclude Include="include\osrm\osrm_fwd.hpp" />
+    <ClInclude Include="include\osrm\partitioner.hpp" />
+    <ClInclude Include="include\osrm\partitioner_config.hpp" />
+    <ClInclude Include="include\osrm\route_parameters.hpp" />
+    <ClInclude Include="include\osrm\status.hpp" />
+    <ClInclude Include="include\osrm\storage_config.hpp" />
+    <ClInclude Include="include\osrm\table_parameters.hpp" />
+    <ClInclude Include="include\osrm\tile_parameters.hpp" />
+    <ClInclude Include="include\osrm\trip_parameters.hpp" />
+    <ClInclude Include="include\partitioner\bisection_graph.hpp" />
+    <ClInclude Include="include\partitioner\bisection_graph_view.hpp" />
+    <ClInclude Include="include\partitioner\bisection_to_partition.hpp" />
+    <ClInclude Include="include\partitioner\cell_statistics.hpp" />
+    <ClInclude Include="include\partitioner\cell_storage.hpp" />
+    <ClInclude Include="include\partitioner\dinic_max_flow.hpp" />
+    <ClInclude Include="include\partitioner\edge_based_graph.hpp" />
+    <ClInclude Include="include\partitioner\edge_based_graph_reader.hpp" />
+    <ClInclude Include="include\partitioner\files.hpp" />
+    <ClInclude Include="include\partitioner\inertial_flow.hpp" />
+    <ClInclude Include="include\partitioner\multi_level_graph.hpp" />
+    <ClInclude Include="include\partitioner\multi_level_partition.hpp" />
+    <ClInclude Include="include\partitioner\partitioner.hpp" />
+    <ClInclude Include="include\partitioner\partitioner_config.hpp" />
+    <ClInclude Include="include\partitioner\partition_graph.hpp" />
+    <ClInclude Include="include\partitioner\recursive_bisection.hpp" />
+    <ClInclude Include="include\partitioner\recursive_bisection_state.hpp" />
+    <ClInclude Include="include\partitioner\remove_unconnected.hpp" />
+    <ClInclude Include="include\partitioner\renumber.hpp" />
+    <ClInclude Include="include\partitioner\reorder_first_last.hpp" />
+    <ClInclude Include="include\partitioner\serialization.hpp" />
+    <ClInclude Include="include\partitioner\tarjan_graph_wrapper.hpp" />
+    <ClInclude Include="include\server\api\base_parameters_grammar.hpp" />
+    <ClInclude Include="include\server\api\match_parameter_grammar.hpp" />
+    <ClInclude Include="include\server\api\nearest_parameter_grammar.hpp" />
+    <ClInclude Include="include\server\api\parameters_parser.hpp" />
+    <ClInclude Include="include\server\api\parsed_url.hpp" />
+    <ClInclude Include="include\server\api\route_parameters_grammar.hpp" />
+    <ClInclude Include="include\server\api\table_parameter_grammar.hpp" />
+    <ClInclude Include="include\server\api\tile_parameter_grammar.hpp" />
+    <ClInclude Include="include\server\api\trip_parameter_grammar.hpp" />
+    <ClInclude Include="include\server\api\url_parser.hpp" />
+    <ClInclude Include="include\server\connection.hpp" />
+    <ClInclude Include="include\server\http\compression_type.hpp" />
+    <ClInclude Include="include\server\http\header.hpp" />
+    <ClInclude Include="include\server\http\reply.hpp" />
+    <ClInclude Include="include\server\http\request.hpp" />
+    <ClInclude Include="include\server\request_handler.hpp" />
+    <ClInclude Include="include\server\request_parser.hpp" />
+    <ClInclude Include="include\server\server.hpp" />
+    <ClInclude Include="include\server\service\base_service.hpp" />
+    <ClInclude Include="include\server\service\match_service.hpp" />
+    <ClInclude Include="include\server\service\nearest_service.hpp" />
+    <ClInclude Include="include\server\service\route_service.hpp" />
+    <ClInclude Include="include\server\service\table_service.hpp" />
+    <ClInclude Include="include\server\service\tile_service.hpp" />
+    <ClInclude Include="include\server\service\trip_service.hpp" />
+    <ClInclude Include="include\server\service\utils.hpp" />
+    <ClInclude Include="include\server\service_handler.hpp" />
+    <ClInclude Include="include\storage\block.hpp" />
+    <ClInclude Include="include\storage\io.hpp" />
+    <ClInclude Include="include\storage\io_config.hpp" />
+    <ClInclude Include="include\storage\io_fwd.hpp" />
+    <ClInclude Include="include\storage\serialization.hpp" />
+    <ClInclude Include="include\storage\shared_datatype.hpp" />
+    <ClInclude Include="include\storage\shared_data_index.hpp" />
+    <ClInclude Include="include\storage\shared_memory.hpp" />
+    <ClInclude Include="include\storage\shared_memory_ownership.hpp" />
+    <ClInclude Include="include\storage\shared_monitor.hpp" />
+    <ClInclude Include="include\storage\storage.hpp" />
+    <ClInclude Include="include\storage\storage_config.hpp" />
+    <ClInclude Include="include\storage\tar.hpp" />
+    <ClInclude Include="include\storage\tar_fwd.hpp" />
+    <ClInclude Include="include\storage\view_factory.hpp" />
+    <ClInclude Include="include\updater\csv_file_parser.hpp" />
+    <ClInclude Include="include\updater\csv_source.hpp" />
+    <ClInclude Include="include\updater\source.hpp" />
+    <ClInclude Include="include\updater\updater.hpp" />
+    <ClInclude Include="include\updater\updater_config.hpp" />
+    <ClInclude Include="include\util\alias.hpp" />
+    <ClInclude Include="include\util\assert.hpp" />
+    <ClInclude Include="include\util\attributes.hpp" />
+    <ClInclude Include="include\util\bearing.hpp" />
+    <ClInclude Include="include\util\bit_range.hpp" />
+    <ClInclude Include="include\util\cast.hpp" />
+    <ClInclude Include="include\util\concurrent_id_map.hpp" />
+    <ClInclude Include="include\util\conditional_restrictions.hpp" />
+    <ClInclude Include="include\util\connectivity_checksum.hpp" />
+    <ClInclude Include="include\util\container.hpp" />
+    <ClInclude Include="include\util\coordinate.hpp" />
+    <ClInclude Include="include\util\coordinate_calculation.hpp" />
+    <ClInclude Include="include\util\deallocating_vector.hpp" />
+    <ClInclude Include="include\util\debug.hpp" />
+    <ClInclude Include="include\util\dist_table_wrapper.hpp" />
+    <ClInclude Include="include\util\dynamic_graph.hpp" />
+    <ClInclude Include="include\util\exception.hpp" />
+    <ClInclude Include="include\util\exception_utils.hpp" />
+    <ClInclude Include="include\util\exclude_flag.hpp" />
+    <ClInclude Include="include\util\filtered_graph.hpp" />
+    <ClInclude Include="include\util\filtered_integer_range.hpp" />
+    <ClInclude Include="include\util\fingerprint.hpp" />
+    <ClInclude Include="include\util\for_each_pair.hpp" />
+    <ClInclude Include="include\util\for_each_range.hpp" />
+    <ClInclude Include="include\util\geojson_debug_logger.hpp" />
+    <ClInclude Include="include\util\geojson_debug_policies.hpp" />
+    <ClInclude Include="include\util\geojson_debug_policy_toolkit.hpp" />
+    <ClInclude Include="include\util\geojson_validation.hpp" />
+    <ClInclude Include="include\util\graph_traits.hpp" />
+    <ClInclude Include="include\util\graph_utils.hpp" />
+    <ClInclude Include="include\util\group_by.hpp" />
+    <ClInclude Include="include\util\guidance\bearing_class.hpp" />
+    <ClInclude Include="include\util\guidance\entry_class.hpp" />
+    <ClInclude Include="include\util\guidance\name_announcements.hpp" />
+    <ClInclude Include="include\util\guidance\turn_lanes.hpp" />
+    <ClInclude Include="include\util\hilbert_value.hpp" />
+    <ClInclude Include="include\util\ieee754.hpp" />
+    <ClInclude Include="include\util\indexed_data.hpp" />
+    <ClInclude Include="include\util\integer_range.hpp" />
+    <ClInclude Include="include\util\isatty.hpp" />
+    <ClInclude Include="include\util\json_container.hpp" />
+    <ClInclude Include="include\util\json_deep_compare.hpp" />
+    <ClInclude Include="include\util\json_renderer.hpp" />
+    <ClInclude Include="include\util\json_util.hpp" />
+    <ClInclude Include="include\util\log.hpp" />
+    <ClInclude Include="include\util\lua_util.hpp" />
+    <ClInclude Include="include\util\matrix_graph_wrapper.hpp" />
+    <ClInclude Include="include\util\meminfo.hpp" />
+    <ClInclude Include="include\util\mmap_file.hpp" />
+    <ClInclude Include="include\util\mmap_tar.hpp" />
+    <ClInclude Include="include\util\msb.hpp" />
+    <ClInclude Include="include\util\node_based_graph.hpp" />
+    <ClInclude Include="include\util\opening_hours.hpp" />
+    <ClInclude Include="include\util\packed_vector.hpp" />
+    <ClInclude Include="include\util\percent.hpp" />
+    <ClInclude Include="include\util\permutation.hpp" />
+    <ClInclude Include="include\util\query_heap.hpp" />
+    <ClInclude Include="include\util\range_table.hpp" />
+    <ClInclude Include="include\util\rectangle.hpp" />
+    <ClInclude Include="include\util\serialization.hpp" />
+    <ClInclude Include="include\util\static_assert.hpp" />
+    <ClInclude Include="include\util\static_graph.hpp" />
+    <ClInclude Include="include\util\static_rtree.hpp" />
+    <ClInclude Include="include\util\std_hash.hpp" />
+    <ClInclude Include="include\util\string_util.hpp" />
+    <ClInclude Include="include\util\string_view.hpp" />
+    <ClInclude Include="include\util\timed_histogram.hpp" />
+    <ClInclude Include="include\util\timezones.hpp" />
+    <ClInclude Include="include\util\timing_util.hpp" />
+    <ClInclude Include="include\util\to_osm_link.hpp" />
+    <ClInclude Include="include\util\trigonometry_table.hpp" />
+    <ClInclude Include="include\util\typedefs.hpp" />
+    <ClInclude Include="include\util\vector_tile.hpp" />
+    <ClInclude Include="include\util\vector_view.hpp" />
+    <ClInclude Include="include\util\viewport.hpp" />
+    <ClInclude Include="include\util\web_mercator.hpp" />
+    <ClInclude Include="include\util\xor_fast_hash.hpp" />
+    <ClInclude Include="include\util\xor_fast_hash_storage.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\microtar\microtar.vcxproj">
+      <Project>{4eb96290-b1a8-4088-9f09-cc608bb0018e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AC2DF0B8-E606-4512-B012-AB8F95A308C0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>osrm</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions); </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)third_party\geometry.hpp-0.9.2\include;$(ProjectDir)third_party\cheap-ruler-cpp-2.5.4\include;$(ProjectDir)third_party\rapidjson\include;$(ProjectDir)third_party\rapidjson\include\rapidjson;$(ProjectDir)third_party\sol2;$(ProjectDir)third_party\libosmium\include;$(ProjectDir)unit_tests;$(ProjectDir)include;$(ProjectDir)third_party\microtar\src;$(ProjectDir)third_party\variant\include;$(ProjectDir)osrm-deps\tbb\include;$(ProjectDir)osrm-deps\libs\include;$(ProjectDir)osrm-deps\boost\include\boost-1_63;$(ProjectDir)third_party\protozero\include;$(ProjectDir)third_party\vtzero\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)osrm-deps\tbb\lib\intel64\vc14;$(ProjectDir)osrm-deps\libs\bin;$(ProjectDir)osrm-deps\boost\lib;$(ProjectDir)osrm-deps\libs\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions); </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)third_party\geometry.hpp-0.9.2\include;$(ProjectDir)third_party\cheap-ruler-cpp-2.5.4\include;$(ProjectDir)third_party\rapidjson\include;$(ProjectDir)third_party\rapidjson\include\rapidjson;$(ProjectDir)third_party\sol2;$(ProjectDir)third_party\libosmium\include;$(ProjectDir)unit_tests;$(ProjectDir)include;$(ProjectDir)third_party\microtar\src;$(ProjectDir)third_party\variant\include;$(ProjectDir)osrm-deps\tbb\include;$(ProjectDir)osrm-deps\libs\include;$(ProjectDir)osrm-deps\boost\include\boost-1_63;$(ProjectDir)third_party\protozero\include;$(ProjectDir)third_party\vtzero\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)osrm-deps\tbb\lib\intel64\vc14;$(ProjectDir)osrm-deps\libs\bin;$(ProjectDir)osrm-deps\boost\lib;$(ProjectDir)osrm-deps\libs\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions); </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)third_party\geometry.hpp-0.9.2\include;$(ProjectDir)third_party\cheap-ruler-cpp-2.5.4\include;$(ProjectDir)third_party\rapidjson\include;$(ProjectDir)third_party\rapidjson\include\rapidjson;$(ProjectDir)third_party\sol2;$(ProjectDir)third_party\libosmium\include;$(ProjectDir)unit_tests;$(ProjectDir)include;$(ProjectDir)third_party\microtar\src;$(ProjectDir)third_party\variant\include;$(ProjectDir)osrm-deps\tbb\include;$(ProjectDir)osrm-deps\libs\include;$(ProjectDir)osrm-deps\boost\include\boost-1_63;$(ProjectDir)third_party\protozero\include;$(ProjectDir)third_party\vtzero\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)osrm-deps\tbb\lib\intel64\vc14;$(ProjectDir)osrm-deps\libs\bin;$(ProjectDir)osrm-deps\boost\lib;$(ProjectDir)osrm-deps\libs\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions); </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)unit_tests;$(ProjectDir)osrm-deps\libs\include;$(ProjectDir)osrm-deps\tbb\include;$(ProjectDir)osrm-deps\boost\include\boost-1_63;$(ProjectDir)third_party\geometry.hpp-0.9.2\include;$(ProjectDir)third_party\cheap-ruler-cpp-2.5.4\include;$(ProjectDir)third_party\rapidjson\include;$(ProjectDir)third_party\rapidjson\include\rapidjson;$(ProjectDir)third_party\sol2;$(ProjectDir)third_party\libosmium\include;$(ProjectDir)third_party\microtar\src;$(ProjectDir)third_party\variant\include;$(ProjectDir)third_party\protozero\include;$(ProjectDir)third_party\vtzero\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)osrm-deps\tbb\lib\intel64\vc14;$(ProjectDir)osrm-deps\libs\bin;$(ProjectDir)osrm-deps\boost\lib;$(ProjectDir)osrm-deps\libs\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bzip2.lib;lua.lib;libexpat.lib;luabind.lib;stxxl.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
