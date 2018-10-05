@@ -5,9 +5,11 @@
 #include "osrm/trip_parameters.hpp"
 
 #include "osrm/coordinate.hpp"
+#include "osrm/extractor_config.hpp"
 #include "osrm/engine_config.hpp"
 #include "osrm/json_container.hpp"
 
+#include "osrm/extractor.hpp"
 #include "osrm/osrm.hpp"
 #include "osrm/status.hpp"
 
@@ -22,19 +24,24 @@ using namespace osrm;
 
 int main(int argc, const char *argv[])
 {
-	if (argc < 2)
-	{
-		std::cerr << "Usage: " << argv[0] << " data.osrm\n";
-		system("PAUSE");
-		return EXIT_FAILURE;
-	}
+	std::string base_path = "../datasets/osrm/nyc";
+	std::string osm_path = "../datasets/maps/new-york.osm.pbf";
+	std::string profile_path = "../datasets/profiles/car.lua";
 
-	
+	ExtractorConfig extractor_config;
+	extractor_config.generate_edge_lookup = true;
+	extractor_config.requested_num_threads = 4;
+	extractor_config.base_path = base_path;
+	extractor_config.input_path = osm_path;
+	extractor_config.profile_path = profile_path;
+
+	extract(extractor_config);
+
 	// Configure based on a .osrm base path, and no datasets in shared mem from osrm-datastore
 	EngineConfig config;
 
-	config.storage_config = { argv[1] };
-	config.use_shared_memory = false;
+	config.storage_config = { base_path };
+	config.use_shared_memory = true;
 
 	// We support two routing speed up techniques:
 	// - Contraction Hierarchies (CH): requires extract+contract pre-processing

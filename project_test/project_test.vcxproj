@@ -145,6 +145,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)osrm\osrm-deps\tbb\lib\intel64\vc14;$(SolutionDir)osrm\osrm-deps\libs\bin;$(SolutionDir)osrm\osrm-deps\boost\lib;$(SolutionDir)osrm\osrm-deps\libs\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bzip2.lib;libexpat.lib;lua.lib;luabind.lib;stxxl.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
