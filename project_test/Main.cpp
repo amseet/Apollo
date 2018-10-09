@@ -1,3 +1,6 @@
+#include "util/log.hpp"
+#include "util/timing_util.hpp"
+
 #include "osrm/match_parameters.hpp"
 #include "osrm/nearest_parameters.hpp"
 #include "osrm/route_parameters.hpp"
@@ -6,6 +9,8 @@
 
 #include "osrm/coordinate.hpp"
 #include "osrm/extractor_config.hpp"
+#include "partitioner/partitioner.hpp"
+#include "partitioner/partitioner_config.hpp"
 #include "osrm/engine_config.hpp"
 #include "osrm/json_container.hpp"
 
@@ -13,35 +18,88 @@
 #include "osrm/osrm.hpp"
 #include "osrm/status.hpp"
 
+#include <tbb/task_scheduler_init.h>
 #include <exception>
 #include <iostream>
 #include <string>
 #include <utility>
-
 #include <cstdlib>
 
 using namespace osrm;
 
-int main(int argc, const char *argv[])
-{
-	std::string base_path = "../datasets/osrm/nyc";
-	std::string osm_path = "../datasets/maps/new-york.osm.pbf";
-	std::string profile_path = "../datasets/profiles/car.lua";
+std::string osm_path = "../datasets/maps/new-york-latest.osm.pbf";
+std::string base_path = "../datasets/osrm/nyc";
+std::string profile_path = "../datasets/profiles/car.lua";
 
+auto check_file = [](const boost::filesystem::path &path) {
+	if (!boost::filesystem::is_regular_file(path))
+	{
+		util::Log(logERROR) << "Input file " << path << " not found!";
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+};
+
+void extract() {
 	ExtractorConfig extractor_config;
-	extractor_config.generate_edge_lookup = true;
-	extractor_config.requested_num_threads = 4;
+	extractor_config.generate_edge_lookup = false;
+	extractor_config.requested_num_threads = 1;
 	extractor_config.base_path = base_path;
 	extractor_config.input_path = osm_path;
 	extractor_config.profile_path = profile_path;
 
-	extract(extractor_config);
+	if (!check_file(extractor_config.GetPath(".osrm"))) {
+		extract(extractor_config);
+	}
+	std::cout << "==================Extraction Complete================" << std::endl;
+}
 
-	// Configure based on a .osrm base path, and no datasets in shared mem from osrm-datastore
+int partition() {
+
+	partitioner::PartitionerConfig partition_config;
+	partition_config.base_path = base_path;
+	partition_config.requested_num_threads = tbb::task_scheduler_init::default_num_threads();
+	partition_config.balance = 1.2;
+	partition_config.boundary_factor = 0.25;
+	partition_config.num_optimizing_cuts = 10;
+	partition_config.small_component_size = 1000;
+	//partition_config.max_cell_sizes = std::vector<size_t>(4);
+
+	if (!check_file(partition_config.GetPath(".osrm.ebg")) ||
+		!check_file(partition_config.GetPath(".osrm.cnbg_to_ebg")) ||
+		!check_file(partition_config.GetPath(".osrm.cnbg")))
+	{
+		return EXIT_FAILURE;
+	}
+
+	util::Log() << "Computing recursive bisection";
+
+	TIMER_START(bisect);
+	auto exitcode = partitioner::Partitioner().Run(partition_config);
+	TIMER_STOP(bisect);
+	util::Log() << "Bisection took " << TIMER_SEC(bisect) << " seconds.";
+}
+
+int main(int argc, const char *argv[])
+{ 
+	util::LogPolicy::GetInstance().Unmute();
+	std::string verbosity = "DEBUG";
+	util::LogPolicy::GetInstance().SetLevel(verbosity);
+
+	// step 1
+	extract();
+
+	// step 2
+	partition();
+
+	// Configure based on a .osrm base path
 	EngineConfig config;
 
 	config.storage_config = { base_path };
-	config.use_shared_memory = true;
+	config.use_shared_memory = false;
 
 	// We support two routing speed up techniques:
 	// - Contraction Hierarchies (CH): requires extract+contract pre-processing

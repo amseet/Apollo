@@ -247,3 +247,4 @@ ModelManifest.xml
 !osrm/osrm-deps/boost/include/boost-1_63/boost/predef/architecture/x86
 !osrm/osrm-deps/boost/include/boost-1_63/boost/predef/hardware/simd/x86
 !osrm/osrm-deps/boost/include/boost-1_63/boost/preprocessor/debug
+!datasets/profiles
